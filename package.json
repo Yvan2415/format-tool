@@ -1,0 +1,14 @@
+{
+  "name": "format-tool",
+  "version": "1.0.1",
+  "description": "提供常用的格式化方法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "format"
+  ],
+  "author": "yvan2415",
+  "license": "ISC"
+}
