@@ -111,7 +111,44 @@ function convertCurrency(money) {
 	return chineseStr;
 }
 
+//时间格式化
+function formatTime(input){
+	let y = input.getFullYear().toString().padStart(4,0);
+	let M = (input.getMonth() + 1).toString().padStart(2,0)
+	let d = input.getDate().toString().padStart(2,0);
+	let h = input.getHours().toString().padStart(2,0);
+	let m = input.getMinutes().toString().padStart(2,0);
+	let s = input.getSeconds().toString().padStart(2,0);
+	return `${y}-${M}-${d} ${h}:${m}:${s}`
+
+}
+
+//金额三位一逗号
+function formatCurrencyTenThou(num) {
+	if(!Number(num)){
+		return ;
+	}
+    let curStr = num.toString().split(".");
+    let part = '',part2 = '';
+    let res = curStr[0].split("").reverse();
+    for(let i = 0 ;i< res.length;i++){
+    	if(i !== 0 && i % 3 === 0){
+    		part += ','
+    	}
+    	part += res[i];
+    }
+    if(curStr[1]){
+    	return part.split("").reverse().join("") + "." + curStr[1].slice(0,2).padEnd(2,"0");
+    }else{
+    	return part.split("").reverse().join("");
+    }
+    
+}
+
 
 module.exports = {
-	formatBankCard,formatTelNum,convertCurrency
+	formatBankCard,
+	formatTelNum,
+	convertCurrency,
+	formatTime,
 }
